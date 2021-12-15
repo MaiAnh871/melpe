@@ -15,7 +15,7 @@ rs_binM = reshape (binM, 1, []);                        % data pre processing (1
 binLength = length (rs_binM);                           % length of data
  
 %% Generate ber
-berI = 0.0;                                            % bit error rate at input
+berI = 0.005;                                           % bit error rate at input
 nbitEr = round (berI * binLength);                      % number of bit error
 bitE_ar = zeros (1, binLength);                         % init bit error array
 bitE_ar (randperm (binLength, nbitEr)) = 1;             % set bit error to 1
@@ -31,7 +31,7 @@ add1_binEr = [rs_binEr; binRm];                         % add edundant bit
 add2_binEr = [add1_binEr; lastRm];                      % add bit 81 (96x849)
 rs_binOut = reshape (add2_binEr, 16, 5094);             % reshape into 16x5094
 trp_binOut = rs_binOut.';                               % transpose into 5094x16
-output = bi2de (trp_binOut, 16, 'left-msb');            % convert binary to decimal
+output = bi2de (trp_binOut, 'left-msb');                % convert binary to decimal
 
 %% Calculate ber again
-berO = nnz (bin_es - trp_binOut) / (5094*16);
+berO = nnz (bin_es - trp_binOut) / (5094/6*81);
