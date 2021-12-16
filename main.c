@@ -56,6 +56,8 @@
 static char numfr;
 static short spin[748]; 
 static short spout[748]; 
+
+// NÉN
 /*
 int main(int argc, char *argv[])
 {
@@ -96,6 +98,7 @@ int main(int argc, char *argv[])
 //---------------------------------------------------------------------------
 */
 
+// GIẢI NÉN
 int main(int argc, char *argv[])
 {
    int i = 0;
@@ -134,7 +137,7 @@ int main(int argc, char *argv[])
 }
 //---------------------------------------------------------------------------
 
-
+// NÉN + GIẢI NÉN
 /*
 int main(int argc, char *argv[])
 {
