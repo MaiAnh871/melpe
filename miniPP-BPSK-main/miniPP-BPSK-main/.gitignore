@@ -1,0 +1,15 @@
+Matlab/_pesq_itu_results.txt
+Matlab/_pesq_results.txt
+Matlab/*.asv
+Matlab/*.mat
+*.asv
+*.exe
+!/EXE/*.exe
+.vscode/
+*.o
+modem/*.o
+modem/*.a
+*.bin
+*.wav
+Matlab/*.h
+Matlab/*.bin

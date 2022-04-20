@@ -1,0 +1,24 @@
+02/01/2021: Hoàn thành demodulate cho phần RX, có thể chạy bằng matlab để xem tín hiệu
+
+# Hướng dẫn 1 số file:
+	CorrAndDecode.m: Xử lý file thu được bằng cách tương quan với file truyền đi
+		Lưu ý: File nhận được nằm trong đường dẫn 'RX\rawReceived\xyz\a_b'
+			xyz: folder cách truyền
+			a_b: với a là mẫu truyền, b là số thứ tự truyền lại, vd 2_3: truyền file thứ 2 lần thứ 3
+		
+	checkBer: Kiểm tra BER giữa dữ liệu thu được và dữ liệu truyền đi	
+		Lưu ý: So ber giữa 2 buffer, mỗi frame có buffer chứa 14 phần tử với:
+			Buffer(1-10) và bit đầu tiên buffer(11): 81 bit dữ liệu
+			Bit đầu tiên buffer(12): Cờ VAD
+			Buffer(13) và 7 bit đầu buffer(14): 15 bit để biểu diễn cnt
+			Bit MSB buffer(14): Cờ báo hiệu đồng bộ
+		Lưu ý 2: Với cách truyền No encrypt, có các mẫu 1 2 3 4 14 19 20
+		
+				
+	BPSKModPP: hàm modulate bằng matlab		
+		Đầu vào là buffer (12 phần tử chứa 81 bit), đầu ra là tín hiệu truyền đi và 90 bit sau khi đã interleave
+		Lưu ý: tần số đầu ra là 8Khz
+	
+	BPSKDemodPP: hàm demodulate bằng matlab
+		Đầu vào là tín hiệu thu được, đầu ra là buffer dữ liệu 12 phần tử chứa 81 bit
+		test bằng file testModulated.m

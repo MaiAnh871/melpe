@@ -1,0 +1,21 @@
+CC =gcc
+CFLAGS = -Wall -O4
+
+
+LOBJECTS = modem8k.o 
+LSRC = $(LOBJECTS:.o=.c)
+
+LIBS = -lm
+
+libaudio.a: $(LOBJECTS)
+	ar cr libmodem.a $(LOBJECTS)
+	ranlib libmodem.a
+
+clean:
+	rm -f $(PROGRAM) $(LOBJECTS) $(ARCH) core *.bak *.a
+
+depend:
+	makedepend -- $(CFLAGS) -- $(LSRC)
+
+
+# DO NOT DELETE
